@@ -23,9 +23,25 @@ export default function Registration() {
                 email,
                 password
             });
-            navigate('/login');
+
+
+            console.log("response = " + JSON.stringify(response));
+
+            if (response.data == "Username already exists, please try another username.") {
+                toast.error("Username already exists, please try another username.");
+            }
+            else if (response.data == "User with this email already exists") {
+                toast.error("User with this email already exists");
+            }
+            else if (response.data == "Error occurred") {
+                toast.error("Error occurred");
+            }
+            else {
+                navigate('/login');
+            }
+
         } catch (error) {
-            console.log('Registered successfully', error.message);
+            toast.error(`Error Registering ${error}`);
             toast.error('Error Registering');
         }
     };

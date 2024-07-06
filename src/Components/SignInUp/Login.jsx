@@ -19,7 +19,15 @@ export default function Login() {
                 email,
                 password
             });
-
+            if (response.data == "This email is not registered") {
+                toast.error("This email is not registered");
+            }
+            else if (response.data == "Password not provided") {
+                toast.error("Password not provided");
+            }
+            if (response.status == 400) {
+                toast.error("Wrong Password");
+            }
             if (response.status === 200) {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('user', JSON.stringify(response.data.name));
@@ -30,7 +38,7 @@ export default function Login() {
                 throw new Error(response.data.error);
             }
         } catch (error) {
-            toast.error(`Error while login: ${error.response?.data.error || error.message}`);
+            toast.error(`${error.response?.data.error || error.message}`);
         }
     };
 
