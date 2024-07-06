@@ -9,7 +9,7 @@ export default function Registration() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate();
-    const backendUrl = import.meta.env.url || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_url || "http://localhost:5000";
 
     const handleSubmit = async (e) => {
         e.preventDefault();

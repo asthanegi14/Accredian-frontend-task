@@ -24,7 +24,7 @@ const Benefits = () => {
         setShowPopup(!showPopup);
     };
 
-    const backendUrl = import.meta.env.url || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_url || "http://localhost:5000";
 
     const fetchData = async (filter) => {
         console.log("fetching data...");

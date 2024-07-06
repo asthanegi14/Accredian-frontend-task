@@ -9,7 +9,7 @@ export default function Popup({ handleClose }) {
     const [refereeBonus, setRefereeBonus] = useState('');
     const [email, setEmail] = useState('');
 
-    const backendUrl = import.meta.env.url || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_url || "http://localhost:5000";
 
 
     useEffect(() => {

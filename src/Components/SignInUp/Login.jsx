@@ -9,7 +9,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const backendUrl = import.meta.env.url || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_url || "http://localhost:5000";
     console.log(backendUrl);
     const handleSubmit = async (e) => {
         e.preventDefault();
